@@ -60,13 +60,13 @@ As an example, we have companies and users and a `Company` can have multiple `Us
 
 The `Access`-properties define the role-dependent accessibility of the field. The `Type` property-entries correspond to the fields' data type and are linked to the type of control that will be used to render them: 
 
-| Type  | Control         |
-|-------|-----------------|
-| Input (type=*any*)| &lt;input type="*any*"/&gt; |
-| Select | &lt;select /&gt; |
-| File | &lt;input type="*file*" /&gt; |
-| Text | &lt;textarea /&gt; |
-| Entity | &lt;fieldset /&gt; |
+| Type               | Control                       |
+|--------------------|-------------------------------|
+| Input (type=*any*) | &lt;input type="*any*"/&gt;   |
+| Select             | &lt;select /&gt;              |
+| File               | &lt;input type="*file*" /&gt; |
+| Text               | &lt;textarea /&gt;            |
+| Entity             | &lt;fieldset /&gt;            |
 
 Indeed, the `Type` property can also be used to create relations among  entities. For example see the `Contacts` field in the above data model, where the company `Contacts` refer to the `User` entity. Mind that, using the `Cardinality` key, one can indicate that a field consist of a collection of values and immediately define upper- and lower bounds for the collection size. This implementation also allows the developer to provide  attributes that are to be added to the controls directly.
 
@@ -122,9 +122,119 @@ As the form generation is a recursive process, there is no limit to the depth an
 
 ## Form Roles
 
-In order to manage the complexity of the hierarchical forms, I devised a simple ruling system based on 'form roles'. Simply put, these are roles that certain layers in the form hierarchy are given and that tell the underlying components what to do. For example, below is a simplified branch of the component tree with the respective roles:
+In order to manage the complexity of the hierarchical forms, I devised a simple ruling system based on 'form roles'. Simply put, these roles tell the underlying components how to behave. For example, below is a simplified branch of the component tree with the respective roles:
 
 ![](media/Form_Roles.png)
+
+In this generic branch we see that the `Fieldset` is responsible for getting the data from the database (one-way data binding) whereas the `Control` component is responsible for updating the data to the database (Data_Submitter). Data flows downstream through the props and flows back up through the state. The lowest level or 'leave' of the branch is where the user input generates the data (Data_Generator) which is then being 'propagated' upwards. Mind that the roles can would generally differ dependeing on the position of a given component within a tree. For example, the topmost `FieldSet` does not need to propagate data upwards whereas the downstream `FieldSet`s (such as `Contacts[0]` and `Contacts[1]` in the above tree) do.
+
+With this, it becomes possible to orchestrates all necessary form operations. As an example, I show you how a parent component collects data from a child/downstream component differently depending on its role as a data merger:
+
+```js
+const { Data } = this.state;
+const { Roles } = this.props;
+
+let New_Data = null;
+
+if (Roles.includes(Form_Roles.Data_Merger)) {
+	if (Number.isInteger(iChild_Id)) {
+		New_Data = Data;
+		New_Data[iChild_Id] = iNew_Data;
+	} else {
+		New_Data = { ...Data, ...{ [iChild_Id]: iNew_Data } };
+	}
+} else {
+	New_Data = iNew_Data;
+}
+```
+
+Note that in our setting only a `ControlCollection`s (as we encountered with the collection of technologies with integer-valued indices) and `FieldSet`s can function as `Data_Merger`s. Also note the use of the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to perform the merge. Finally, notice how I try to avoid bare strings in my code by making use of string-valued enumerations:
+
+```js
+export const Form_Roles = Object.freeze({
+	Data_Binder: "Data_Binder",
+	Data_Generator: "Data_Generator",
+	Data_Merger: "Data_Merger",
+	Data_Propagator: "Data_Propagator",
+	Data_Submitter: "Data_Submitter",
+	Data_Validator: "Data_Validator",
+
+	Error_Reporter: "Error_Reporter",
+	Error_Propagator: "Error_Propagator",
+
+	Event_Propagator:"Event_Propagator",
+
+	File_Generator: "File_Generator",
+	File_Propagator: "File_Propagator",
+	File_Submitter: "File_Submitter",
+
+	Global_Read_Only_Reporter: "_Global_Read_Only_Reporter",
+	Local_Read_Only_Reporter: "Local_Read_Only_Reporter"
+});
+```
+
+I chose to organize the roles by the subject (Data, Error, Event, File or State) but that is of course to be customized for your particular needs.
+
+## Wrappers and Logging
+
+In order to avoid repetitive code, I had the `Form` component and all of its descendants inherit from a wrapper around the React `Component` called the `FormComponent`. For example:
+
+```js
+class ControlCollection extends FormComponent {
+	[…]
+}
+
+class FormComponent extends WrapperComponent {
+	[…]
+}
+```
+
+There is one more layer of wrapping paper added here: the `WrapperComponent`. This wrapper is also for non-form component and serves to inject simple logging capability:
+
+```js
+class WrapperComponent extends Component {
+	Log = (iMessage, iType = Message_Types.Info) => {
+		const { Verbose } = this.props.Context;
+		const Message = this.constructor.name + ": " + iMessage;
+
+		if (!Verbose) return;
+
+		switch (iType) {
+			case Message_Types.Info:
+				console.log(Message);
+				break;
+
+			case Message_Types.Error:
+				console.error(Message);
+				break;
+
+			case Message_Types.Warning:
+				console.warn(Message);
+				break;
+
+			default:
+				break;
+		}
+	};
+}
+
+export default WrapperComponent;
+```
+
+Notice how the use of `this.constructor.name` elegantly allows to identify which Component is calling. Since the incoming argument `iMessage` generally starts with the name of the caller function, Log statements tend to come up nice a orderly so that the developer can follow the asynchronous chain of events:
+
+```log
+[…]
+Form: render: Company: 3d26f3e5-------------8caa24006c8b
+FieldSet: Get_Doc: Company: 3d26f3e5-------------aa24006c8b
+DB: Check_DB: Creating DB for entity Company
+DB: Dispatch: Handling operation on Company
+App: render: Starting application.
+Action: render: Adding action Stage_Event
+RegisterCompany: render
+DB: On_Get_Success: Returned successfully from Get operation.
+[…]
+```
 
 ## Multi-Language Support
 
@@ -136,7 +246,6 @@ const Description = T("Field_" + Field_Id + "_Desc", T("Enter_Value"));
 ```
 
 The dictionary itself is stored as JSON object so that other team members can easily edit it without the need of special IT skills:
-
 
 ```json
 "Field_Domains": {

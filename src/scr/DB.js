@@ -26,7 +26,7 @@ export class DB {
 
 	Check_DB = iEntity => {
 		if (!this.DBs[iEntity]) {
-			this.Log("Creating DB for entity " + iEntity);
+			this.Log("Check_DB: Creating DB for entity " + iEntity);
 			this.DBs[iEntity] = new PouchDB(this.Address + iEntity.toLowerCase());
 		}
 	};
@@ -235,7 +235,7 @@ export class DB {
 
 		this.Check_DB(Entity);
 
-		this.Log("Handling operation on " + Entity);
+		this.Log("Dispatch: Handling operation on " + Entity);
 
 		Func();
 
@@ -243,7 +243,7 @@ export class DB {
 	};
 
 	On_Get_Success = iResponse => {
-		this.Log("Returned successfully from Get operation.");
+		this.Log("On_Get_Success: Returned successfully from Get operation.");
 
 		const Operation = this.Current_Operation;
 		const { Entity, Entity_Id } = Operation;

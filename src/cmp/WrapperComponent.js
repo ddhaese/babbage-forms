@@ -6,14 +6,23 @@ class WrapperComponent extends Component {
 		const { Verbose } = this.props.Context;
 		const Message = this.constructor.name + ": " + iMessage;
 
-		if (Verbose && iType === Message_Types.Info) {
-			console.log(Message);
-		} else if (Verbose && iType === Message_Types.Error) {
-			console.error(Message);
-		} else if (Verbose && iType === Message_Types.Warning) {
-			console.warn(Message);
-		} else {
-			console.log("Verbose: " + Verbose);
+		if (!Verbose) return;
+
+		switch (iType) {
+			case Message_Types.Info:
+				console.log(Message);
+				break;
+
+			case Message_Types.Error:
+				console.error(Message);
+				break;
+
+			case Message_Types.Warning:
+				console.warn(Message);
+				break;
+
+			default:
+				break;
 		}
 	};
 }
