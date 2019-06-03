@@ -6,7 +6,7 @@
 
 ## How it works
 
-!["Overview Workings"](assets\Overview_Workings.png)
+!["Overview Workings"](media\Overview_Workings.png)
 
 ## Auto-generating Forms
 
