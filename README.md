@@ -10,9 +10,9 @@
 
 ## Auto-generating Forms
 
-Auto-generated forms allow for very loose data models that can evolve with time and require minimal maintenance. The SPOT (*Single Point of Truth*) is a JSON object stored in a separate file. Every entity ('database' in NoSQL) has fields defined for it and every field has properties:
+Auto-generated forms allow for very loose data models that can evolve with time and require minimal maintenance. The SPOT (*Single Point of Truth*) of the data model is a JSON object stored in a separate file. Every entity ('database' in NoSQL) has fields defined for it and every field has properties:
 
-*dat.json (partial):*
+*dat.json (excerpt):*
 ```json
 "Company": {
 	"Company_Name": {
@@ -46,17 +46,20 @@ Auto-generated forms allow for very loose data models that can evolve with time 
 },
 "User": {
 	[…],
-	"Phone_Numbers": {
-		"Access": [2, 2, 2, 2, 2],
-		"Type": "Input",
-		"Cardinality": [1, 3],
-		"Singular": "Phone_Number"
+	"First_Name": {
+		"Access": [1, 1, 1, 2, 1],
+		"Identifying": true,
+		"Type": "Input"
 	},
 	[…]
 }
 ```
 
-As an example, we have companies and users and a `Company` can have multiple `User`s (contacts). The `Access`-properties define the role-dependent accessibility of the field. The `Type` property-entries correspond to the fields' data type and are linked to the type of control that will be used to render them: 
+As an example, we have companies and users and a `Company` can have multiple `User`s (contacts). Here is a diagram representing these two entities.
+
+![Diagram](media/Diagram.png)
+
+The `Access`-properties define the role-dependent accessibility of the field. The `Type` property-entries correspond to the fields' data type and are linked to the type of control that will be used to render them: 
 
 | Type  | Control         |
 |-------|-----------------|
@@ -68,6 +71,43 @@ As an example, we have companies and users and a `Company` can have multiple `Us
 
 Indeed, the `Type` property can also be used to create relations among  entities. For example see the `Contacts` field in the above data model, where the company `Contacts` refer to the `User` entity. Mind that, using the `Cardinality` key, one can indicate that a field consist of a collection of values and immediately define upper- and lower bounds for the collection size. This implementation also allows the developer to provide  attributes that are to be added to the controls directly.
 
+> Note how The JSON data model allows to elegantly combine the data model with reference data, how meta-data can easily be attached inside the field definition and how easy it is to customize validation, lay-out and behavior. Here are some more fields to illustrate this point:
+> ```json
+> "Company_Address": {
+>	"Access": [2, 2, 2, 2, 1],
+>	"Type": "Input",
+>	"Attributes": {
+>		"type": "text",
+>		"maxLength": 100,
+>		"placeholder": "Street nr, postal City"
+>	}
+>},
+>"Domains": {
+>	"Access": [2, 2, 2, 2, 1],
+>	"Type": "Select",
+>	"List": [
+>		"Software_Dev",
+>		"Web_Apps",
+>		"Mobile",
+>		"Networks",
+>		"Hardware",
+>		"Virtual_Reality",
+>		"IOT",
+>		"Security",
+>		"SAP",
+>		"Big_Data"
+>	],
+>	"Attributes": { "multiple": true }
+>},
+>"Phone_Numbers": {
+>	"Access": [2, 2, 2, 2, 2],
+>	"Type": "Input",
+>	"Cardinality": [1, 3],
+>	"Singular": "Phone_Number"
+>},
+> ```
+
+## 
 
 
 
