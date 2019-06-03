@@ -1,0 +1,14 @@
+.action {
+	background-color: var(--ap-red);
+}
+
+.action a,
+.action button {
+	padding: 0px 25px;
+	font-size: var(--font-size);
+}
+
+.action a:hover,
+.action button:hover {
+	background-color: var(--ap-red);
+}

@@ -1,0 +1,54 @@
+.message {
+	display: flex;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 5px;
+}
+
+.message span,
+.message span p {
+	padding: 0px;
+}
+
+.message.info {
+	background-color: rgb(0,196, 176);
+	color: rgb(1, 120, 120);
+}
+
+.message.error {
+	background-color: rgba(255, 0, 0, 0.5);
+	color: var(--very-light);
+}
+
+.message.warning {
+	background-color: orange;
+	color: var(--very-light);
+}
+
+.message span {
+	flex: 110 1;
+}
+
+.message button {
+	border: 1px solid grey;
+	color: var(--very-light);
+	border-radius: 8px;
+	padding: 10px 20px;
+}
+
+.message.info button {
+	background-color: rgb(1, 120, 120);
+	box-shadow: 0px 4px 4px grey;
+}
+
+.message.info button:hover {
+	background-color: rgb(1, 76, 74);
+}
+
+.message.error button {
+	background-color: rgba(255, 0, 0, 0.3);
+}
+
+.message.error button:hover {
+	background-color: rgba(255, 0, 0, 1);
+}

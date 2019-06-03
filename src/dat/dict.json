@@ -1,0 +1,301 @@
+{
+	"Assistant": {
+		"nl-be": "Assistent"
+	},
+	"Below_Cardinality": {
+		"nl-be": "Te weinig elementen, je moet minstens {Min} element(en) hebben.",
+		"en-us": "Too few item, you need at least {Min} item(s)."
+	},
+	"Big_Data": {
+		"nl-be": "Big data",
+		"en-us": "Big data"
+	},
+	"Button_Add_Control": {
+		"nl-be": "Druk hierop om een {Item} toe te voegen",
+		"en-us": "Press to add an {Item}"
+	},
+	"Button_Remove_Control": {
+		"nl-be": "Druk hierop om dit item te verwijderen",
+		"en-us": "Press to remove this item"
+	},
+	"Company": {
+		"nl-be": "Bedrijfsgegevens",
+		"en-us": "Company details"
+	},
+	"Contact_Mentor": {
+		"nl-be": "Mentor",
+		"en-us": "Mentor"
+	},
+	"Contact_Contact": {
+		"nl-be": "Contactpersoon",
+		"en-us": "Contact person"
+	},
+	"Contact": {
+		"nl-be": "Contactpersoon",
+		"en-us": "Contact person"
+	},
+	"Coordinator": {
+		"nl-be": "Coördinator"
+	},
+	"Data_Sent": {
+		"nl-be": "Gegevens verstuurd naar de databank, wachten op een antwoord...",
+		"en-us": "Data sent to the database, waiting for an answer..."
+	},
+	"EAICT": {
+		"nl-be": "Elektronica-ICT",
+		"en-us": "Electronics-ICT"
+	},
+	"EN-US": {
+		"nl-be": "Engels",
+		"en-us": "English"
+	},
+	"Enter_Value": {
+		"nl-be": "Geef hier de gevraagde waarde op",
+		"en-us": "Enter the requested value here"
+	},
+	"Exceeding_Cardinality": {
+		"nl-be": "Te veel elementen, je mag maximaal {Max} elementen hebben.",
+		"en-us": "Too many item, you can have at most {Max} items."
+	},
+	"Field_Avatar": {
+		"nl-be": "MD:Avatar",
+		"en-us": "MD:Avatar"
+	},
+	"Field_Avatar_Desc": {
+		"nl-be": "Geef een avatar op. Alternatief worden de initialen gebruikt",
+		"en-us": "You can provide an avatar, if you don't initials will be used"
+	},
+	"Field_Blacklisted": {
+		"nl-be": "MD:Staat op de zwarte lijst?",
+		"en-us": "MD:Is blacklisted?"
+	},
+	"Field_Contacts": {
+		"nl-be": "MD:Contacten die het bedrijf vertegenwoordigen",
+		"en-us": "MD:Contacts that represent the company"
+	},
+	"Field_Company_Address": {
+		"nl-be": "MD:Adres",
+		"en-us": "MD:Address"
+	},
+	"Field_Company_Address_Desc": {
+		"nl-be": "Voorbeeld: Kerkstraat 12A bus 4 (2de verdieping), 9271 Burghout",
+		"en-us": "Example:   Kerkstraat 12A bus 4 (2de verdieping), 9271 Burghout"
+	},
+	"Field_Comment": {
+		"nl-be": "MD:Extra opmerkingen. *(gebruik shift + Enter als regeleinde)*",
+		"en-us": "MD:Additional comments. *(use shift + Return for new line)*"
+	},
+	"Field_Company_Email": {
+		"nl-be": "MD:Algemene *e*-mail van het bedrijf",
+		"en-us": "MD:Main company *e*-mail"
+	},
+	"Field_Company_Name": {
+		"nl-be": "MD:Naam van het bedrijf",
+		"en-us": "MD:Name of the company"
+	},
+	"Field_Domains": {
+		"nl-be": "MD:Kies één of meerdere domeinen waarin uw bedrijf actief is (*gebruik CTRL toets*)",
+		"en-us": "MD:Select one or more domains for your company (*use CTRL key*)"
+	},
+	"Field_Domains_Desc": {
+		"nl-be": "Kies één of meerdere domeinen die het dichts aanleunen bij die van uw bedrijf (*gebruik CTRL toets*)",
+		"en-us": "Select one or more domains that matches the company's domains as closely as possible (*use CTRL key*)"
+	},
+	"Field_Educations": {
+		"nl-be": "MD:Van welke opleiding(en) wenst het bedrijf studenten aan te trekken? (*gebruik CTRL toets*)",
+		"en-us": "MD:What education(s) the company wishes to attract students from? (*use CTRL key*)"
+	},
+	"Field_Email": {
+		"nl-be": "MD:*E*-mail",
+		"en-us": "MD:*E*-mail"
+	},
+	"Field_First_Name": {
+		"nl-be": "MD:Voornaam",
+		"en-us": "MD:First name"
+	},
+	"Field_Language": {
+		"nl-be": "MD:Taal dat het meest gangbaar is op het bedrijf",
+		"en-us": "MD:The most frequently spoken language in the company"
+	},
+	"Field_Last_Name": {
+		"nl-be": "MD:Familienaam",
+		"en-us": "MD:Last name"
+	},
+	"Field_Logo": {
+		"nl-be": "MD:Plak hier een url die verwijst naar logo van uw bedrijf",
+		"en-us": "MD:Paste here an url pointing to the logo of your company"
+	},
+	"Field_Places_Available": {
+		"nl-be": "MD:Aantal stageplaatsen beschikbaar",
+		"en-us": "MD:Number of internship vacancies"
+	},
+	"Field_Places_Available_Desc": {
+		"nl-be": "Een bedrijf heeft gewoonlijk 1-3 plaatsen beschikbaar maar groepen tot 5 worden aanvaard",
+		"en-us": "Typically, 1-3 places available but groups of up to 5 is possible"
+	},
+	"Field_Phone_Numbers": {
+		"nl-be": "MD:Telefoonnummers",
+		"en-us": "MD:Phone numbers"
+	},
+	"Field_Registered_For_Event": {
+		"nl-be": "MD:Bent u al geregistreerd voor een stage-event?",
+		"en-us": "MD:Have you registered yet for a internship event?"
+	},
+	"Field_Registered_For_Event_Desc:": {
+		"nl-be": "MD:Enkel bedrijven die geregistreerd zijn komen in aanmerking als stagebedrijf.",
+		"en-us": "MD:Only registered companies are allowed as internship-partner?"
+	},
+	"Field_Roles": {
+		"nl-be": "MD:Kies één of meerdere rollen (*gebruik CTRL toets*)",
+		"en-us": "MD:Choose one or more roles (*use CTRL key*)"
+	},
+	"Field_Slides": {
+		"nl-be": "MD:Voeg eventueel een presentatie toe met een aantal dia's die het bedrijf omschrijft",
+		"en-us": "MD:You can upload here a presentation containing a few slides advertising your company"
+	},
+	"Field_Technologies": {
+		"nl-be": "MD:Technologieën eigen aan het bedrijf",
+		"en-us": "MD:Technologies used in the company"
+	},
+	"Field_Website": {
+		"nl-be": "MD:Website",
+		"en-us": "MD:Website"
+	},
+	"Form_Automatic": {
+		"nl-be": "MD:Dit formulier wordt automatisch opgeslagen.",
+		"en-us": "MD:This form will be saved automatically."
+	},
+	"Error_Count": {
+		"nl-be": "MD:Het formulier bevat fouten of er ontbreken gegevens (*n={Errors}*). Zoek de velden op met rode sterretjes of met een foutmelding en pas deze aan.",
+		"en-us": "MD:The form contains errors or data is missing (*n={Errors}*). Find the field with the red stars or with an error message and make the necessary adjustments."
+	},
+	"Error_Missing": {
+		"nl-be": "Dit is een verplicht veld.",
+		"en-us": "This value is not optional."
+	},
+	"Error_Pattern": {
+		"nl-be": "De waarde van dit veld voldoet niet aan het verwachte patroon '{Pattern}'.",
+		"en-us": "This value does not coorespond to the expected pattern '{Pattern}'."
+	},
+	"Error_Too_Long": {
+		"nl-be": "Deze waarde is té lang, de maximum lengte is {Max} karakters.",
+		"en-us": "This value is too long, the maximal length is {Max} characters."
+	},
+	"Error_Too_Short": {
+		"nl-be": "Deze waarde is té kort, de minimum lengte is {Min} karakters.",
+		"en-us": "This value is too short, the minimal length is {Min} characters."
+	},
+	"Error_Value": {
+		"nl-be": "De opgegeven waarde is niet geldig.",
+		"en-us": "This value is not valid."
+	},
+	"Error_Server": {
+		"nl-be": "MD:Oeps, er is een fout opgetreden op de server. De administrator wordt hiervan automatisch van op de hoogte gebracht. Probeer het later nog eens of stuur een berichtje naar de website-verantwoordelijk om op de hoogte te blijven.",
+		"en-us": "MD:Oops, an error occurred server-side. The administrator should automatically receive a message. Try later or contact the site-administrator to remain posted on this issue."
+	},
+	"File_Name_Exceeded": {
+		"nl-be": "De bestandsnaam is te lang, gelieve het bestand te hernoemen.",
+		"en-us": "The file name is too large, please rename."
+	},
+	"File_Size_Exceeded": {
+		"nl-be": "Het bestand is té groot, gelieve een kleiner bestand te kiezen of te comprimeren.",
+		"en-us": "The file is too large, please select a smaller file or compress this one."
+	},
+	"Hardware": {
+		"nl-be": "Hardware toepassingen",
+		"en-us": "Hardware applications"
+	},
+	"I_Understand": {
+		"nl-be": "Ik begrijp het",
+		"en-us": "I Understand"
+	},
+	"IOT": {
+		"nl-be": "Internet of things",
+		"en-us": "Internet of things"
+	},
+	"Logo_Alt": {
+		"nl-be": "Logo van Artesis Plantijn Hogeschool",
+		"en-us": "Logo of Artesis Plantijn University College"
+	},
+
+	"Mobile": {
+		"nl-be": "Mobiele apps",
+		"en-us": "Mobile apps"
+	},
+	"Networks": {
+		"nl-be": "Netwerken",
+		"en-us": "Networks"
+	},
+	"NL-BE": {
+		"nl-be": "Nederlands",
+		"en-us": "Dutch"
+	},
+	"Phone_Number": {
+		"nl-be": "Telefoonnummer",
+		"en-us": "Phone number"
+	},
+	"Profile": {
+		"nl-be": "Profiel"
+	},
+	"Put_Doc_Error": {
+		"nl-be": "Er is een probleem opgetreden met het updaten van de gegevens. Best even de pagina opnieuw laden met F5 en opnieuw proberen. Bij herhaling, contacteer de admin (onderaan de pagina).",
+		"en-us": "A problem occurred while uploading the data to the database. If the error persist, please contact the admin (bottom of this page)."
+	},
+	"Register_Company_Intro": {
+		"nl-be": "MD:# Aanmelding Stagebedrijf academiejaar {Acad_Year} aan de AP\n\nBinnen de opleidingen Elektronica-ICT en Toegepaste Informatica aan de AP Hogeschool lopen de laatstejaars studenten stage. Uw bedrijf heeft reeds studenten begeleid tijdens hun stage ofwel interesse hierin getoond.\n\nGelieve onderstaand formulier in te vullen indien u wil dat onze studenten bij uw bedrijf stage lopen. Wegens het grote aanbod van stagebedrijven zullen wij op basis van onderstaande gegevens selecteren of uw bedrijf in aanmerking komt als stagebedrijf. De selectie gebeurt op basis van domein, sector, regio en soort bedrijf. Indien u in aanmerking komt, dan ontvangt u daar later een mail van.\n\nStudenten die volgend academiejaar hun stage moeten doorlopen, krijgen een overzicht van alle mogelijke stagebedrijven vanaf juni. Vanaf het moment dat de studenten weten dat ze hun stage volgend academiejaar mogen uitvoeren, (na publicatie punten) mogen ze contact opnemen met de stagebedrijven om hun stageopdracht te concretiseren. De stageopdracht moet goedgekeurd zijn door de hogeschool, student en bedrijf om te kunnen starten met de stage.\n\nIndien u onze procedures en stagewerking niet kent of nog vragen heeft, neem dan zeker contact op!\n\nAlvast bedankt.\n\nMvg,\n\nOpleidingshoofden\n\n[Yves Masset](mailto:yves.masset@ap.be) (Elektronica-ICT)\n\n[Kelly Casal](kelly.casalmosteiro@ap.be) (Toegepaste Informatica)",
+		"en-us": "MD:**Here comes the intro**"
+	},
+	"RegisterCompany": {
+		"nl-be": "Registratie bedrijf",
+		"en-us": "Company registration"
+	},
+	"Remove": {
+		"nl-be": "Verwijderen",
+		"en-us": "Remove"
+	},
+	"Security": {
+		"nl-be": "Software/hardware beveiliging",
+		"en-us": "Software/hardware Security"
+	},
+	"Software_Dev": {
+		"nl-be": "Software ontwikkeling",
+		"en-us": "Software development"
+	},
+	"Stage_Event": {
+		"nl-be": "Stage Event",
+		"en-us": "Internship Event"
+	},
+	"Stage_Tool": {
+		"nl-be": "Stage Tool",
+		"en-us": "Internship Management Tool"
+	},
+	"State_Global_Read_Only": {
+		"nl-be": "MD:Het formulier is alleen-lezen. Als je denkt toch ",
+		"en-us": "MD:"
+	},
+	"TI": {
+		"nl-be": "Toegepaste Informatica",
+		"en-us": "Applied Informatics"
+	},
+	"Submit": {
+		"nl-be": "Verzenden"
+	},
+	"Technology": {
+		"nl-be": "Technologie",
+		"en-us": "Technology"
+	},
+	"Update": {
+		"nl-be": "Wijzigingen doorvoeren"
+	},
+	"User": {
+		"nl-be": "Gebruiker"
+	},
+	"Virtual_Reality": {
+		"nl-be": "Virtual reality",
+		"en-us": "Virtual reality"
+	},
+	"Web_Apps": {
+		"nl-be": "Webtoepassingen",
+		"en-us": "Web applications"
+	}
+}

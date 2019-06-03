@@ -1,0 +1,15 @@
+.icon-button {
+	background-size: 100%;
+	background-repeat: no-repeat;
+	border: 0px;
+	width: 20px;
+	height: 20px;
+}
+
+.remove {
+	background-image: url(../img/Remove.png);
+}
+
+.plus {
+	background-image: url(../img/Plus.png);
+}

@@ -1,0 +1,27 @@
+#register-company {
+	width: 50%;
+	min-width: 700px;
+	margin-left: 30px;
+	background-color: var(--very-light);
+	padding: 40px;
+}
+
+#register-company-intro {
+	padding: 25px;
+	margin: 25px 0px;
+	color: var(--ap-grey);
+	border-radius: 15px;
+}
+
+#register-company-intro h1 {
+	background-color: var(--ap-red);
+	color:var(--very-light);
+	border-radius: 10px;
+	font-size: 1.5em;
+	padding: 30px;
+}
+
+#register-company-intro p {
+	padding: 5px 20px;
+	text-align: justify;
+}

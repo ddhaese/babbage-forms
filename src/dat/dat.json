@@ -1,0 +1,482 @@
+{
+	"Views": {
+		"Contact": {
+			"RegisterCompany": {
+				"View": "RegisterCompany",
+				"Default": true
+			}
+		}
+	},
+	"Panes_Visibility": {
+		"RegisterCompany": [false, false, true]
+	},
+	"Form_Roles": ["Admin", "Coordinator", "Assistant", "Contact", "Student"],
+	"Data_Model": {
+		"Company": {
+			"Company_Name": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Input",
+				"Identifying": true,
+				"Attributes": {
+					"type": "text"
+				}
+			},
+			"Company_Address": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Input",
+				"Attributes": {
+					"type": "text",
+					"maxLength": 100,
+					"placeholder": "Street nr, postal City"
+				}
+			},
+			"Company_Email": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Input",
+				"Attributes": {
+					"type": "email",
+					"maxLength": 100
+				}
+			},
+			"Website": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Input",
+				"Optional": true,
+				"Attributes": {
+					"type": "url",
+					"maxLength": 255,
+					"pattern": "https?://.*"
+				}
+			},
+			"Logo": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Input",
+				"Optional": true,
+				"Attributes": {
+					"type": "url",
+					"maxLength": 255,
+					"pattern": "https?://.*"
+				}
+			},
+			"Domains": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Select",
+				"List": [
+					"Software_Dev",
+					"Web_Apps",
+					"Mobile",
+					"Networks",
+					"Hardware",
+					"Virtual_Reality",
+					"IOT",
+					"Security",
+					"SAP",
+					"Big_Data"
+				],
+				"Attributes": { "multiple": true }
+			},
+			"Technologies": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Input",
+				"Cardinality": [1, 10],
+				"Singular": "Technology"
+			},
+			"Slides": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "File",
+				"Optional": true,
+				"Validation": "File_Validate",
+				"Attributes": {
+					"accept": ".ppt,.pptx,.ppx"
+				}
+			},
+			"Contacts": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "User",
+				"Label": "Contact",
+				"Cardinality": [1, 10],
+				"Singular": "Contact"
+			},
+			"Places_Available": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Input",
+				"Attributes": {
+					"type": "range",
+					"min": "1",
+					"max": "5"
+				}
+			},
+			"Educations": {
+				"Access": [2, 2, 2, 2, 0],
+				"Type": "Select",
+				"List": ["EAICT", "TI"],
+				"Attributes": { "multiple": true }
+			},
+			"Language": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Select",
+				"List": ["NL-BE", "EN-US"]
+			},
+			"Comment": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Text",
+				"Optional": true,
+				"Attributes": {
+					"cols": 50,
+					"rows": 10,
+					"wrap": "soft",
+					"maxLength": 500,
+					"style": { "width": "100%" }
+				}
+			},
+			"Status": {
+				"Access": [2, 2, 1, 0, 0],
+				"Type": "Select",
+				"list": [
+					"Transferred",
+					"Registering",
+					"Registered",
+					"Accepted",
+					"Rejected"
+				],
+				"Default": "Transferred"
+			},
+			"Blacklisted": {
+				"Access": [2, 2, 1, 0, 0],
+				"Type": "Input",
+				"Attributes": {
+					"type": "checkbox"
+				},
+				"Default": false
+			}
+		},
+		"User": {
+			"First_Name": {
+				"Access": [1, 1, 1, 2, 1],
+				"Identifying": true,
+				"Type": "Input"
+			},
+			"Last_Name": {
+				"Access": [1, 1, 1, 2, 1],
+				"Identifying": true,
+				"Type": "Input"
+			},
+			"Email": {
+				"Access": [1, 1, 1, 2, 1],
+				"Type": "Input",
+				"Attributes": {
+					"type": "email"
+				}
+			},
+			"Phone_Numbers": {
+				"Access": [2, 2, 2, 2, 2],
+				"Type": "Input",
+				"Cardinality": [1, 3],
+				"Singular": "Phone_Number"
+			},
+			"Roles": {
+				"Access": [2, 1, 1, 2, 1],
+				"Type": "Select",
+				"List": ["Contact_Mentor", "Contact_Contact"],
+				"Attributes": { "multiple": true }
+			}
+		},
+		"Proposal": {
+			"Description": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Domains": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Educations": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Mentor": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Question": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Period_Available": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Messages": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Message_Coordinator": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Message_Internal": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Message_External": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Status": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Title": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			}
+		},
+		"Internship": {
+			"Analysis": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Contract": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Description": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Documentation": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Domains": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Educations": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Mentor": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Period": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Proposal": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Proposal_Document": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Question": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Message_Student": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Message_Coordinator": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Message_Internal": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Message_External": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Status": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Student": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Testing": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Title": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			}
+		},
+		"Deliverable": {
+			"Name": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Date_Exp": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Date_Act": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Internship": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Message_Student": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Message_Coordinator": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Message_Internal": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Message_External": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Documents": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Template": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Score": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			}
+		},
+		"Agenda": {
+			"Name": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Date": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Acad_Year": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Description": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			}
+		},
+		"Timesheet": {
+			"Internship": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Date": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Percent_Analysis": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Percent_Development": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Percent_Ill": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Percent_Holiday": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Percent_Testing": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Message": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			}
+		},
+		"Template": {
+			"Name": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Template": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			},
+			"Language": {
+				"Access": [1, 1, 1, 1, 1],
+				"Type": "String",
+				"Dim": 25
+			}
+		}
+	}
+}

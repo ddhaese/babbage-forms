@@ -1,0 +1,4 @@
+#detail-pane {
+	overflow: auto;
+	background-color: var(--very-light);
+}

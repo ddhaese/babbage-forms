@@ -1,0 +1,16 @@
+.views-item {
+	color: var(--ap-grey);
+	background-color: rgba(255, 255, 255, .7);
+	height: 80px;
+	justify-content: flex-end;
+	display: flex;
+	border-right: 5px solid var(--ap-grey);
+	align-items: center;
+	font-size: 1.5em;
+	padding: 10px;
+}
+
+.views-item:hover {
+	color: var(--ap-red);
+	border-right: 5px solid var(--ap-red);
+}

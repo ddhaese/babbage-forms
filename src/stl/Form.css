@@ -1,0 +1,120 @@
+fieldset {
+	margin: 30px;
+	border-radius: 8px;
+	background: transparent;
+	border: 1px solid rgb(64, 64, 64);
+}
+
+div > fieldset {
+	width: 100%;
+	margin: 0px 10px;
+}
+
+legend {
+	font-style: italic;
+	color: rgb(64, 64, 64);
+}
+
+input {
+	background: transparent;
+	border-width: 0px 0px 2px 0px;
+	border-bottom: 2px solid rgb(64, 64, 64);
+}
+
+select {
+	background: transparent;
+	font-family: Arial;
+	border-radius: 4px;
+	padding: 5px;
+	width: 350px;
+	overflow: hidden;
+}
+
+option {
+	padding: 7px 0px;
+}
+
+.collection-control {
+	display: flex;
+}
+
+.range-display {
+	font-size: 2em;
+	color: gray;
+	padding: 0px 10px;
+}
+
+input[type="range"] {
+	-webkit-appearance: none;
+	width: 80px;
+	height: 25px;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: 0.2s;
+	transition: opacity 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 8px;
+	height: 25px;
+	position: relative;
+	top: 13px;
+	background: rgb(64, 64, 64);
+	cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+	width: 8px;
+	position: relative;
+	top: 13px;
+	background: rgb(64, 64, 64);
+	cursor: pointer;
+}
+
+.control-collection div {
+	padding: 5px 0px;
+}
+
+.field label p {
+	margin: 30px 0px 0px 0px;
+}
+
+.error {
+	background-color: rgba(255, 0, 0, 0.3);
+}
+
+.ready {
+	background-color: transparent;
+}
+
+.sent {
+	background-color: rgba(249, 166, 2, 0.3);
+}
+
+.field {
+	margin: 20px 0px;
+	display: inline;
+}
+
+.required {
+	width: 10px;
+	display: inline;
+}
+
+.required label p:after {
+	content: "";
+	background-image: url(../img/Required.png);
+	background-repeat: no-repeat;
+	margin-left: 5px;
+	background-size: 10px 10px;
+	height: 10px;
+	width: 10px;
+	display: inline-block;
+}
+
+.file-input{
+	padding: 10px 200px 3px 0px;
+	border-bottom: 2px solid rgb(64, 64, 64);
+}

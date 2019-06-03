@@ -1,0 +1,122 @@
+:root {
+	--height-header: 70px;
+	--font-size: 13.33px;
+	--ap-dark-red: rgb(151, 0, 12);
+	--ap-red: rgb(196, 0, 9);
+	--ap-grey: rgb(104, 103, 108);
+	--ap-science-tech-green: rgb(98, 152, 91);
+	--very-light: white;
+	--split-compl-1: #00c4b0;
+	--split-compl-2: #6cc400;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: var(--font-size);
+}
+
+html,
+body,
+#root {
+	height: 100%;
+}
+
+#app-header,
+#app-top-header {
+	height: var(--height-header);
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+#app-header {
+	height: var(--height-header);
+	background-color: var(--very-light);
+}
+
+#app-top-header {
+	height: calc(var(--height-header) / 2);
+	background-color: var(--very-light);
+}
+
+#app-header li,
+#app-top-header li {
+	display: table;
+	float: left;
+}
+
+#app-top-header li a,
+#app-top-header li button,
+#app-header li a,
+#app-header li button {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	text-decoration: none;
+	
+}
+
+#app-top-header li a,
+#app-top-header li button {
+	height: calc(var(--height-header) / 2);
+	padding: 0px 10px;
+	background-color: var(--very-light);
+	color: var(--ap-grey);
+}
+
+#app-header li a,
+#app-header li button {
+	color: var(--very-light);
+	height: var(--height-header);
+	border: 0;
+}
+
+#app-top-header li a:hover:enabled,
+#app-top-header li button:hover:enabled {
+	background-color: var(--ap-red);
+	color: var(--very-light);
+}
+
+.spacer {
+	flex: 110;
+}
+
+#title {
+	background-color: var(--ap-red);
+	padding: 0px 40px;
+}
+
+#logo {
+	background-color: var(--ap-red);
+}
+#logo a img {
+	height: calc(var(--height-header) - 10px);
+}
+
+#app-body {
+	display: grid;
+	grid-template-columns: 20% 20% 60%;
+	width: 100%;
+	height: 100%;
+}
+
+#views {
+	/* background: var(--very-light)
+		url(../img/Side_Pane.png)
+		no-repeat bottom; */
+	display: grid;
+	grid-row-gap: 5px;
+	padding-top: 30px;
+	background-color: var(--very-light);
+}
+
+button,
+:focus {
+	outline: none;
+}
+
+button{
+	background: transparent;
+	border:0;
+}
