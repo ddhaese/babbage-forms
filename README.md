@@ -12,7 +12,7 @@
 
 Auto-generated forms allow for very loose data models that can evolve with time and require minimal maintenance. The SPOT (*Single Point of Truth*) is a JSON object stored in a separate file. Every entity ('database' in NoSQL) has fields defined for it and every field has properties:
 
-`dat.json (partial):`
+*dat.json (partial):*
 ```json
 "Company": {
 	"Company_Name": {
