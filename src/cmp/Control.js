@@ -7,7 +7,7 @@ import InputFile from "./InputFile";
 import FieldSet from "./FieldSet";
 import Message from "./Message";
 import Dat from "../dat/dat";
-import { Form_Roles } from "../scr/Logic";
+import { Field_Types, Form_Roles } from "../scr/Logic";
 
 class Control extends FormComponent {
 	constructor(props) {
@@ -32,7 +32,7 @@ class Control extends FormComponent {
 		const In_Collection = Number.isInteger(Field_Id);
 
 		this.Log(
-			"Rendering " +
+			"render: " +
 				Field_Id +
 				(In_Collection ? "th " + Field_Object.Singular : "")
 		);
@@ -57,13 +57,13 @@ class Control extends FormComponent {
 
 		const Is_Required = Field_Object.Optional ? false : true;
 		let Roles = [
-						Form_Roles.Data_Generator,
-						Form_Roles.Data_Propagator,
-						Form_Roles.Event_Propagator
-					];
+			Form_Roles.Data_Generator,
+			Form_Roles.Data_Propagator,
+			Form_Roles.Event_Propagator
+		];
 
-		if (Field_Object.Type ==="File"){
-			Roles.push (Form_Roles.File_Propagator)
+		if (Field_Object.Type === Field_Types.File) {
+			Roles.push(Form_Roles.File_Propagator);
 		}
 
 		return (

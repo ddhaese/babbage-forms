@@ -1,5 +1,6 @@
 import React from "react";
 import FormComponent from "../cmp/FormComponent";
+import {Input_Types} from "../scr/Logic";
 
 class Input extends FormComponent {
 	constructor(props) {
@@ -8,7 +9,7 @@ class Input extends FormComponent {
 		const { Field_Object } = props.Context;
 		const Default_Length = 50;
 		const Default_Type_Options = {
-			type: "text",
+			type: Input_Types.Text,
 			maxLength: Default_Length,
 			size: Default_Length
 		};
@@ -53,7 +54,7 @@ class Input extends FormComponent {
 		let Data_Value = null;
 
 		switch (iEvent.Type) {
-			case "checkbox":
+			case Input_Types.Checkbox:
 				Data_Value = iEvent.Checked;
 				break;
 
@@ -76,7 +77,7 @@ class Input extends FormComponent {
 		const { Type_Options, Data } = this.state;
 		const { Field_Id } = Context;
 
-		this.Log("Rendering " + Data);
+		this.Log("render: " + Data);
 
 		let Input_Component = null;
 
@@ -93,7 +94,7 @@ class Input extends FormComponent {
 				{...Type_Options}
 			/>
 		);
-		if (Type_Options.type === "range") {
+		if (Type_Options.type === Input_Types.Range) {
 			Input_Component = (
 				<div>
 					{Input_Component}

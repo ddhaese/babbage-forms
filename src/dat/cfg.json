@@ -1,1 +1,8 @@
-{ "Links": { "Stage_Event_Link": "http://start.ap.be" } }
+{
+	"Links": {
+		"Stage_Event_Link": "http://start.ap.be",
+		"Stage_Tool_Home": "https://www.stage.ap.be",
+		"AP_Home": "https://www.ap.be/",
+		"Couch_DB": "http://localhost:5984/"
+	}
+}

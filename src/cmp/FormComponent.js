@@ -156,32 +156,15 @@ class FormComponent extends WrapperComponent {
 			Errors.push(T("Error_Value"));
 		}
 
+		const Errors_String = Errors.map(E => T(E)).join(" | ");
+
 		if (Errors.length > 0) {
-			this.Log("Data_Validate_Default: Errors where found: " + Errors);
-			this.Set_Message(Form_States.Error, Errors.map(E => T(E)).join(" | "));
+			this.Log("Data_Validate_Default: Errors where found: " + Errors_String);
+			this.Set_Message(Form_States.Error, Errors_String);
 		}
 
 		this.setState({ Errors: Errors }, iThen);
 	};
-
-	// Error_Receive = (iChild_Id, iError = null) => {
-	// 	const { Roles, Error_Pass, Context } = this.props;
-	// 	const { Field_Id } = Context;
-
-	// 	this.Log("Error_Receive: Receiving " + iError + " from child " + iChild_Id);
-
-	// 	if (Roles.includes(Form_Roles.Error_Reporter)) {
-	// 		if (iError) {
-	// 			this.Set_Message(Form_States.Error, iError);
-	// 		} else {
-	// 			this.Remove_Message(Form_States.Error);
-	// 		}
-	// 	}
-
-	// 	if (Roles.includes(Form_Roles.Error_Propagator)) {
-	// 		Error_Pass(Field_Id, iError);
-	// 	}
-	// };
 
 	Event_Propagate = (iThen = Do_Nothing) => {
 		const { Roles, Event_Pass } = this.props;
@@ -476,9 +459,9 @@ class FormComponent extends WrapperComponent {
 
 	On_Put_File = iData => {
 		if (iData.error) {
-			this.Log("On_File_Upload: DB returned with error: " + iData.error);
+			this.Log("On_Put_File: DB returned with error: " + iData.error);
 		} else {
-			this.Log("On_File_Upload: DB returned with data " + iData);
+			this.Log("On_Put_File: DB returned with data " + iData);
 		}
 	};
 
@@ -496,7 +479,7 @@ class FormComponent extends WrapperComponent {
 		let { Messages } = this.state;
 
 		Messages[iState] = this.Message(iText, iButtons);
-		this.Log("Adding message '" + iText + "' for state " + iState);
+		this.Log("Set_Message: Adding message '" + iText + "' for state " + iState);
 
 		this.setState({ Messages: Messages });
 	};

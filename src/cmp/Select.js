@@ -1,6 +1,6 @@
 import React from "react";
 import FormComponent from "../cmp/FormComponent";
-import { T } from "../scr/Logic";
+import { Input_Types, T } from "../scr/Logic";
 
 class Select extends FormComponent {
 	constructor(props) {
@@ -42,7 +42,7 @@ class Select extends FormComponent {
 		let Data_Value = null;
 
 		switch (iEvent.Type) {
-			case "select-multiple":
+			case Input_Types.Select_Multiple:
 				Data_Value = iEvent.Selected;
 				break;
 

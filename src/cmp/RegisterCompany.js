@@ -2,7 +2,7 @@ import React from "react";
 import WrapperComponent from "./WrapperComponent";
 import Form from "./Form";
 import Cfg from "../dat/cfg";
-import { Form_Roles, T } from "../scr/Logic";
+import { Form_Roles, Input_Types, T } from "../scr/Logic";
 import "../stl/RegisterCompany.css";
 
 class RegisterCompany extends WrapperComponent {
@@ -12,7 +12,7 @@ class RegisterCompany extends WrapperComponent {
 		const { Add_Action } = props;
 
 		Add_Action("Stage_Event", {
-			Type: "a",
+			Type: Input_Types.A,
 			Attributes: { href: Cfg.Links.Stage_Event_Link }
 		});
 	}
@@ -24,6 +24,7 @@ class RegisterCompany extends WrapperComponent {
 
 		this.Log("Rendering");
 
+		// For testing purposes
 		Context.Entity = "Company";
 		Context.Entity_Id = "3d26f3e57840d9f0614c8caa24006c8b";
 		Context.Global_Read_Only = false;

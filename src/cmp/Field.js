@@ -4,7 +4,7 @@ import Control from "./Control";
 import FormComponent from "../cmp/FormComponent";
 import ControlCollection from "./ControlCollection";
 import Message from "./Message";
-import { T, Form_Roles } from "../scr/Logic";
+import { Field_Types, Form_Roles, T } from "../scr/Logic";
 import Dat from "../dat/dat";
 
 class Field extends FormComponent {
@@ -19,7 +19,7 @@ class Field extends FormComponent {
 
 		let Sub_Component = null;
 
-		this.Log("Rendering " + Field_Id + " with " + Data);
+		this.Log("render: " + Field_Id + " with " + Data);
 
 		// If it concerns a collection of controls
 		if (Cardinality[1] > 1) {
@@ -60,7 +60,7 @@ class Field extends FormComponent {
 				Form_Roles.Data_Validator
 			];
 
-			if (Field_Object.Type === "File") {
+			if (Field_Object.Type === Field_Types.File) {
 				Roles.push(Form_Roles.File_Submitter);
 			}
 			Sub_Component = (

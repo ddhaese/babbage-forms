@@ -54,7 +54,6 @@ body,
 	vertical-align: middle;
 	text-align: center;
 	text-decoration: none;
-	
 }
 
 #app-top-header li a,
@@ -116,7 +115,7 @@ button,
 	outline: none;
 }
 
-button{
+button {
 	background: transparent;
-	border:0;
+	border: 0;
 }

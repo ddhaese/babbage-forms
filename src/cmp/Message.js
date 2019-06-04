@@ -1,7 +1,7 @@
 import React from "react";
 import WrapperComponent from "./WrapperComponent";
 
-import { T } from "../scr/Logic";
+import { T, Input_Types } from "../scr/Logic";
 import "../stl/Message.css";
 
 class Message extends WrapperComponent {
@@ -28,7 +28,7 @@ class Message extends WrapperComponent {
 				{Message.Buttons
 					? Message.Buttons.map(Button => (
 							<button
-								type="button"
+								type={Input_Types.Button}
 								key={Button.Label}
 								onClick={Button.Callback}
 							>

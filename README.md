@@ -289,6 +289,8 @@ DB: On_Get_Success: Returned successfully from Get operation.
 […]
 ```
 
+Thanks to the inheritance and dependency-injection I was able to keep the size of the project described in this article to a minimum, without hindering readability and manageability. The components together take op `42kB` (`96kB` on disk), the data model `21kb` (`28kB` on disk), the logic and DB connector `11kB` (`16kB` on disk) and the CSS styling `7kB` (`44kB` on disk).
+
 ## WorkFlow Handler
 
 [Promises](https://developer.mozilla.org/nl/docs/Web/JavaScript/Reference/Global_Objects/Promise) are a great invention, but at some point I wanted more. The goal was to define a workflow consisting of a set of form operations, some of which to run synchronously, others to run asynchronously. For example I wanted to be able to execute the following form operations
@@ -517,6 +519,6 @@ let Error_Message = T(
 > 
 > ![](media/Translation.png) 
 
+## Feedback
 
-
-
+That's it. Please, let me know if you find errors or you see ways to improve on this concept or if you have other queries.

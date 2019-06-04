@@ -28,10 +28,11 @@ class FieldSet extends FormComponent {
 		// a new entity must be created and the CouchDB's GUID generation engine
 		// is relied upon to return a new entity id.
 		if (Entity_Id) {
-			this.Log("Get_Doc: " + Entity + " (" + Entity_Id + ")");
+			this.Log("CTOR: Exec Get_Doc" + Entity + " (" + Entity_Id + ")");
 			DB.Get_Doc(Entity, Entity_Id, this.On_Get_Doc, this.On_Get_Doc_Error);
+
 		} else {
-			this.Log("New_Doc");
+			this.Log("CTOR: Exec New_Doc");
 			DB.New_Doc(Entity,  this.On_New_Doc, this.On_New_Doc_Error);
 		}
 	}
@@ -58,6 +59,8 @@ class FieldSet extends FormComponent {
 		const { Entity, Global_Read_Only } = Context;
 
 		if (State === Form_States.Sent) return null;
+
+		this.Log ("render")
 
 		Context.Entity = Entity;
 		Context.Entity_Id = this.state.Entity_Id || Context.Entity_Id;

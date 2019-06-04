@@ -1,7 +1,7 @@
 import React from "react";
 import FormComponent from "./FormComponent";
 import IconButton from "./IconButton";
-import { Form_States } from "../scr/Logic";
+import { Form_States, Images,Input_Types } from "../scr/Logic";
 
 class InputFile extends FormComponent {
 	constructor(props) {
@@ -9,7 +9,7 @@ class InputFile extends FormComponent {
 
 		const { Field_Object } = props.Context;
 
-		const Default_Type_Options = { type: "file" };
+		const Default_Type_Options = { type: Input_Types.File };
 		const Type_Options = {
 			...Default_Type_Options,
 			...Field_Object.Attributes
@@ -86,7 +86,7 @@ class InputFile extends FormComponent {
 		const { Type_Options, Data } = this.state;
 		const { Field_Id } = Context;
 
-		this.Log("Rendering " + Data);
+		this.Log("render: " + Data);
 
 		let Input_Component = null;
 
@@ -95,7 +95,7 @@ class InputFile extends FormComponent {
 				<div>
 					<span className="file-input">{Data}</span>
 					<IconButton
-						Image="Remove"
+						Image={Images.Remove}
 						Callback={this.On_Remove_File}
 						Title="Remove"
 						Read_Only={Read_Only}

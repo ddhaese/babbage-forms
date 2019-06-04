@@ -195,10 +195,10 @@ export class DB {
 
 	Dispatch = () => {
 		if (this.Queue.length === 0) {
-			this.Log("Queue empty.");
+			this.Log("Dispatch: Queue empty.");
 			return;
 		} else if (this.State === Server_States.Remote) {
-			this.Log("Waiting for return...");
+			this.Log("Dispatch: Waiting for return...");
 			return;
 		}
 
@@ -233,7 +233,7 @@ export class DB {
 	};
 
 	On_Get_Error = iError => {
-		this.Log("Returned with error from Get operation.");
+		this.Log("On_Get_Error");
 
 		const Operation = this.Current_Operation;
 
@@ -246,7 +246,7 @@ export class DB {
 	};
 
 	On_Put_Success = iResponse => {
-		this.Log("Returned successfully from Put operation.");
+		this.Log("On_Put_Success.");
 
 		const Operation = this.Current_Operation;
 		const { Entity, Entity_Id } = Operation;
@@ -262,7 +262,7 @@ export class DB {
 	};
 
 	On_Put_Error = iError => {
-		this.Log("Returned with error from New operation.");
+		this.Log("On_Put_Error");
 
 		const Operation = this.Current_Operation;
 
@@ -275,11 +275,10 @@ export class DB {
 	};
 
 	On_New_Success = iResponse => {
-		this.Log("Returned successfully from New operation.");
+		this.Log("On_New_Success");
 
 		const Operation = this.Current_Operation;
 		const { Entity } = Operation;
-
 
 		this.Current_Operation = null;
 		this.State = Server_States.Local;
@@ -295,7 +294,7 @@ export class DB {
 	};
 
 	On_New_Error = iError => {
-		this.Log("Returned with error from put operation.");
+		this.Log("On_New_Error");
 
 		const Operation = this.Current_Operation;
 
@@ -310,14 +309,14 @@ export class DB {
 	Log = (iMessage, iType = Message_Types.Info) => {
 		const Message = "DB: " + iMessage;
 
-		if (this.Verbose && iType === Message_Types.Info) {
+		if (!this.Verbose) return;
+
+		if (iType === Message_Types.Info) {
 			console.log(Message);
-		} else if (this.Verbose && iType === Message_Types.Error) {
+		} else if (iType === Message_Types.Error) {
 			console.error(Message);
-		} else if (this.Verbose && iType === Message_Types.Warning) {
+		} else if (iType === Message_Types.Warning) {
 			console.warn(Message);
-		} else {
-			console.log("Verbose: " + this.Verbose);
 		}
 	};
 
@@ -328,7 +327,7 @@ export class DB {
 
 		if (Operation.length > 0) {
 			this.Log(
-				"Did not receive answer from the database. " +
+				"Reset: Did not receive answer from the database. " +
 					"Something wrong with Operation " +
 					iOperation_Id +
 					":",

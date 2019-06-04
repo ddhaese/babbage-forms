@@ -8,6 +8,25 @@ export const Access_Levels = Object.freeze({
 	Read_Write: 2
 });
 
+export const Images = Object.freeze({
+	Remove: "Remove",
+	Plus: "Plus"
+});
+
+export const Field_Types = Object.freeze({
+	File: "File"
+});
+
+export const Input_Types = Object.freeze({
+	A: "a",
+	Text: "text",
+	Checkbox: "checkbox",
+	Button: "button",
+	Range: "range",
+	File: "file",
+	Select_Multiple: "select-multiple"
+});
+
 export const Form_States = Object.freeze({
 	Error: "Error",
 	Ready: "Ready",
@@ -28,7 +47,7 @@ export const Form_Roles = Object.freeze({
 	Error_Reporter: "Error_Reporter",
 	Error_Propagator: "Error_Propagator",
 
-	Event_Propagator:"Event_Propagator",
+	Event_Propagator: "Event_Propagator",
 
 	File_Generator: "File_Generator",
 	File_Propagator: "File_Propagator",

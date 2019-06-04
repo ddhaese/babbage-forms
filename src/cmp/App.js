@@ -1,14 +1,16 @@
 import React from "react";
-import WrapperComponent from "./WrapperComponent"
+import WrapperComponent from "./WrapperComponent";
 import Action from "./Action";
 import FilterPane from "./FilterPane";
 import ListPane from "./ListPane";
 import DetailPane from "./DetailPane";
 import ViewsItem from "./ViewsItem";
-import Logo from "../img/Logo.png";
+import Logo_nl_be from "../img/Logo_nl-be.png";
+import Logo_en_us from "../img/Logo_en-us.png";
 import Title_End from "../img/Titel_End.png";
 import Action_Start from "../img/Action_Start.png";
 import Dat from "../dat/dat";
+import Cfg from "../dat/cfg";
 import { Filter, Array_Equals } from "../scr/Lib.js";
 import { T, Go_To_View, Toggle_Language } from "../scr/Logic";
 import "../stl/App.css";
@@ -56,7 +58,7 @@ class App extends WrapperComponent {
 		let AppBodyStyle = {};
 		const { Language, Profile_Enabled } = this.state;
 
-		this.Log ("Starting application.")
+		this.Log("render");
 
 		if (Array_Equals(this.state.PanesVis, [true, true, false])) {
 			AppBodyStyle = { gridTemplateColumns: "15% 40% 45%" };
@@ -83,12 +85,15 @@ class App extends WrapperComponent {
 				</ul>
 				<ul id="app-header">
 					<li id="logo">
-						<a href="https://www.ap.be/">
-							<img src={Logo} alt={T("Logo_Alt")} />
+						<a href={Cfg.Links.AP_Home}>
+							<img
+								src={Language === "nl-be" ? Logo_nl_be : Logo_en_us}
+								alt={T("Logo_Alt")}
+							/>
 						</a>
 					</li>
 					<li id="title">
-						<a href="https://www.ap.be/">{T("Stage_Tool")}</a>
+						<a href={Cfg.Links.Stage_Tool_Home}>{T("Stage_Tool")}</a>
 					</li>
 					<li>
 						<a href=".">

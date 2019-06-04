@@ -15,7 +15,7 @@
 
 #register-company-intro h1 {
 	background-color: var(--ap-red);
-	color:var(--very-light);
+	color: var(--very-light);
 	border-radius: 10px;
 	font-size: 1.5em;
 	padding: 30px;

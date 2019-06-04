@@ -4,7 +4,7 @@ import IconButton from "./IconButton";
 import FormComponent from "../cmp/FormComponent";
 import Message from "./Message";
 import { cloneDeep } from "lodash/lang";
-import { T } from "../scr/Logic";
+import { Field_Types, Images, T } from "../scr/Logic";
 
 import { Form_States, Form_Roles } from "../scr/Logic";
 import { Do_Nothing } from "../scr/Lib";
@@ -79,7 +79,7 @@ class ControlCollection extends FormComponent {
 		].includes(State);
 		const Singular = Field_Object.Singular;
 
-		this.Log("Rendering " + Field_Id + " with " + Data);
+		this.Log("render: " + Field_Id + " with " + Data);
 
 		const Control_Array = Data.map((Data_Element, Index) => {
 			let Field_Context = cloneDeep(Context);
@@ -89,7 +89,7 @@ class ControlCollection extends FormComponent {
 				Form_Roles.Data_Validator
 			];
 
-			if (Field_Object.Type === "File") {
+			if (Field_Object.Type === Field_Types.File) {
 				Roles.push([Form_Roles.File_Submitter]);
 			}
 
@@ -106,7 +106,7 @@ class ControlCollection extends FormComponent {
 							Roles={Roles}
 						/>
 						<IconButton
-							Image="Remove"
+							Image={Images.Remove}
 							Callback={() => {
 								this.Remove_Control(Index);
 							}}
@@ -122,7 +122,7 @@ class ControlCollection extends FormComponent {
 			<div className={"control-collection " + State.toLowerCase()}>
 				{Control_Array}
 				<IconButton
-					Image="Plus"
+					Image={Images.Plus}
 					Callback={this.Add_Control}
 					Title={T("Button_Add_Control", null, {
 						Item: T(Singular).toLowerCase()

@@ -4,6 +4,7 @@ import FieldSet from "./FieldSet";
 import Message from "./Message";
 import { Form_States, Form_Roles } from "../scr/Logic";
 import { DB } from "../scr/DB";
+import Cfg from "../dat/cfg";
 
 import "../stl/Form.css";
 
@@ -17,7 +18,7 @@ class Form extends FormComponent {
 			])
 		};
 
-		this.state.DB = new DB("http://localhost:5984/", true);
+		this.state.DB = new DB(Cfg.Links.Couch_DB, true);
 	}
 
 	Understood = () => {
@@ -29,7 +30,7 @@ class Form extends FormComponent {
 		const { Entity, Entity_Id } = Context;
 		const { Messages, State, DB } = this.state;
 
-		this.Log("Rendering form for " + Entity + ": " + Entity_Id);
+		this.Log("render: " + Entity + ": " + Entity_Id);
 
 		Context.DB = DB;
 
