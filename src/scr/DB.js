@@ -15,7 +15,6 @@ export class DB {
 		this.Current_Operation = {};
 		this.State = Server_States.Local;
 		this.Address = iAddress;
-		this.Database = new PouchDB(iAddress);
 		this.Index = 0;
 	}
 
@@ -30,21 +29,6 @@ export class DB {
 			this.DBs[iEntity] = new PouchDB(this.Address + iEntity.toLowerCase());
 		}
 	};
-
-	// Check_Doc = (iEntity, iEntity_Id) => {
-	// 	if (!this.Docs[iEntity + iEntity_Id]) {
-	// 		this.Log(
-	// 			"First time loading of entity " + iEntity + " (" + iEntity_Id + ")"
-	// 		);
-
-	// 		this.Queue.push({
-	// 			Get_Doc_Inner: {
-	// 				Entity: iEntity,
-	// 				Entity_Id: iEntity_Id
-	// 			}
-	// 		});
-	// 	}
-	// };
 
 	Get_Doc = (iEntity, iEntity_Id, iOn_Success, iOn_Error) => {
 		this.Add_Operation({
@@ -66,12 +50,6 @@ export class DB {
 			.then(this.On_Get_Success)
 			.catch(this.On_Get_Error);
 	};
-
-	// Get_UID = (iOn_Success, iOn_Error) => {
-	// 	this.Database.get("_uuids")
-	// 		.then(iOn_Success)
-	// 		.catch(iOn_Error);
-	// };
 
 	New_Doc = (iEntity, iOn_Success, iOn_Error) => {
 		this.Add_Operation({
@@ -110,8 +88,6 @@ export class DB {
 	Put_Doc_Inner = () => {
 		const Operation = this.Current_Operation;
 		const { Entity, Entity_Id, Field_Id, Data } = Operation;
-
-		// this.Check_Doc(Entity, Entity_Id);
 
 		this.Docs[Entity + Entity_Id][Field_Id] = Data;
 
@@ -180,8 +156,6 @@ export class DB {
 			File,
 			Content_Type
 		} = this.Current_Operation;
-
-		// this.Check_Doc(Entity, Entity_Id);
 
 		this.DBs[Entity].putAttachment(
 			Entity_Id,
