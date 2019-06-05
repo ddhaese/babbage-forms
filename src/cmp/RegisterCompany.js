@@ -25,8 +25,8 @@ class RegisterCompany extends WrapperComponent {
 		this.Log("Rendering");
 
 		// For testing purposes
-		Context.Entity = "Company";
-		Context.Entity_Id = "3d26f3e57840d9f0614c8caa24006c8b";
+		Context.Entity = "Proposal";
+		Context.Entity_Id = "22dee5d6ac4f03e03712055a4b0009bc";
 		Context.Global_Read_Only = false;
 
 		return (

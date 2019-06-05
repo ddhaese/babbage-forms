@@ -397,7 +397,7 @@ class FormComponent extends WrapperComponent {
 	On_New_Doc_Error = iResponse => {
 		const Error = iResponse.error;
 
-		this.Log("On_New_Doc_Error: " + Error);
+		this.Log("On_New_Doc_Error: " + Error, Message_Types.Error);
 
 		this.Remove_Message(Form_States.Sent);
 

@@ -22,6 +22,10 @@
 		"nl-be": "Bedrijfsgegevens",
 		"en-us": "Company details"
 	},
+	"Contact": {
+		"nl-be": "Contactpersoon",
+		"en-us": "Contact person"
+	},
 	"Contact_Mentor": {
 		"nl-be": "Mentor",
 		"en-us": "Mentor"
@@ -30,9 +34,13 @@
 		"nl-be": "Contactpersoon",
 		"en-us": "Contact person"
 	},
-	"Contact": {
-		"nl-be": "Contactpersoon",
-		"en-us": "Contact person"
+	"Contact_CEO": {
+		"nl-be": "CEO",
+		"en-us": "CEO"
+	},
+	"Contact_Main": {
+		"nl-be": "Hoofdcontact",
+		"en-us": "Main contact"
 	},
 	"Coordinator": {
 		"nl-be": "Coördinator"
@@ -125,6 +133,14 @@
 		"nl-be": "MD:Plak hier een url die verwijst naar logo van uw bedrijf",
 		"en-us": "MD:Paste here an url pointing to the logo of your company"
 	},
+	"Field_Mentor": {
+		"nl-be": "MD:Mentor van de stage",
+		"en-us": "MD:Internship mentor."
+	},
+	"Field_Period_Available": {
+		"nl-be": "MD:Weken waarbinnen stage gehouden kan worden *(moet minstens 15 weken overspannen)*",
+		"en-us": "MD:Week-range indicating the availability for this internship *(should span at least 15 weeks)*"
+	},
 	"Field_Places_Available": {
 		"nl-be": "MD:Aantal stageplaatsen beschikbaar",
 		"en-us": "MD:Number of internship vacancies"
@@ -136,6 +152,14 @@
 	"Field_Phone_Numbers": {
 		"nl-be": "MD:Telefoonnummers",
 		"en-us": "MD:Phone numbers"
+	},
+	"Field_Question": {
+		"nl-be": "MD:Geef de centrale onderzoekvraag op",
+		"en-us": "MD:The main business question to be answered"
+	},
+	"Field_Proposal_Description": {
+		"nl-be": "MD:Omschrijving van het stage voorstel.",
+		"en-us": "MD:Description of the internship proposal."
 	},
 	"Field_Registered_For_Event": {
 		"nl-be": "MD:Bent u al geregistreerd voor een stage-event?",
@@ -156,6 +180,9 @@
 	"Field_Technologies": {
 		"nl-be": "MD:Technologieën eigen aan het bedrijf",
 		"en-us": "MD:Technologies used in the company"
+	},
+	"Field_Title": {
+		"nl-be": "MD:Titel"
 	},
 	"Field_Website": {
 		"nl-be": "MD:Website",
@@ -213,11 +240,14 @@
 		"nl-be": "Internet of things",
 		"en-us": "Internet of things"
 	},
+	"State_Local_Read_Only": {
+		"nl-be": "Dit veld is alleen-lezen.",
+		"en-us": "This is a read-only field."
+	},
 	"Logo_Alt": {
 		"nl-be": "Logo van Artesis Plantijn Hogeschool",
 		"en-us": "Logo of Artesis Plantijn University College"
 	},
-
 	"Mobile": {
 		"nl-be": "Mobiele apps",
 		"en-us": "Mobile apps"

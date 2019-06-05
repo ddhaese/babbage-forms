@@ -132,7 +132,7 @@
 			"Status": {
 				"Access": [2, 2, 1, 0, 0],
 				"Type": "Select",
-				"list": [
+				"List": [
 					"Transferred",
 					"Registering",
 					"Registered",
@@ -177,70 +177,103 @@
 			"Roles": {
 				"Access": [2, 1, 1, 2, 1],
 				"Type": "Select",
-				"List": ["Contact_Mentor", "Contact_Contact"],
+				"List": ["Contact_Mentor", "Contact_Contact", "Contact_CEO", "Contact_Main"],
 				"Attributes": { "multiple": true }
 			}
 		},
 		"Proposal": {
-			"Description": {
-				"Access": [1, 1, 1, 1, 1],
-				"Type": "String",
-				"Dim": 25
+			"Title": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Text",
+				"Attributes": {
+					"cols": 50,
+					"rows": 3,
+					"wrap": "soft",
+					"maxLength": 150,
+					"style": { "width": "100%" }
+				}
 			},
-			"Domains": {
-				"Access": [1, 1, 1, 1, 1],
-				"Type": "String",
-				"Dim": 25
-			},
-			"Educations": {
-				"Access": [1, 1, 1, 1, 1],
-				"Type": "String",
-				"Dim": 25
-			},
-			"Mentor": {
-				"Access": [1, 1, 1, 1, 1],
-				"Type": "String",
-				"Dim": 25
+			"Proposal_Description": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Text",
+				"Attributes": {
+					"cols": 50,
+					"rows": 25,
+					"wrap": "soft",
+					"maxLength": 1250,
+					"style": { "width": "100%" }
+				}
 			},
 			"Question": {
-				"Access": [1, 1, 1, 1, 1],
-				"Type": "String",
-				"Dim": 25
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Text",
+				"Attributes": {
+					"cols": 50,
+					"rows": 5,
+					"wrap": "soft",
+					"maxLength": 250,
+					"style": { "width": "100%" }
+				}
+			},
+			"Domains": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Select",
+				"List": [
+					"Software_Dev",
+					"Web_Apps",
+					"Mobile",
+					"Networks",
+					"Hardware",
+					"Virtual_Reality",
+					"IOT",
+					"Security",
+					"SAP",
+					"Big_Data"
+				],
+				"Attributes": { "multiple": true }
+			},
+			"Mentor": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "User",
+				"Label": " "
+			},
+			"Educations": {
+				"Access": [2, 2, 2, 2, 0],
+				"Type": "Select",
+				"List": ["EAICT", "TI"],
+				"Attributes": { "multiple": true }
 			},
 			"Period_Available": {
-				"Access": [1, 1, 1, 1, 1],
-				"Type": "String",
-				"Dim": 25
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Week_Range"
+			},
+			"Places_Available": {
+				"Access": [2, 2, 2, 2, 1],
+				"Type": "Input",
+				"Attributes": {
+					"type": "range",
+					"min": "1",
+					"max": "5"
+				}
 			},
 			"Messages": {
-				"Access": [1, 1, 1, 1, 1],
-				"Type": "String",
-				"Dim": 25
-			},
-			"Message_Coordinator": {
-				"Access": [1, 1, 1, 1, 1],
-				"Type": "String",
-				"Dim": 25
-			},
-			"Message_Internal": {
-				"Access": [1, 1, 1, 1, 1],
-				"Type": "String",
-				"Dim": 25
-			},
-			"Message_External": {
-				"Access": [1, 1, 1, 1, 1],
-				"Type": "String",
-				"Dim": 25
+				"Access": [0, 0, 0, 0, 0],
+				"Type": "Message",
+				"Cardinality": [0, 100],
+				"On_Form": false,
+				"Singular": "Message"
 			},
 			"Status": {
-				"Access": [1, 1, 1, 1, 1],
-				"Type": "String",
-				"Dim": 25
-			},
-			"Title": {
-				"Access": [1, 1, 1, 1, 1],
-				"Type": "String",
-				"Dim": 25
+				"Access": [2, 2, 1, 0, 0],
+				"Type": "Select",
+				"List": [
+					"Registering",
+					"Registered",
+					"Accepted",
+					"Rejected",
+					"Inactive"
+				],
+				"Default": "Registering"
 			}
 		},
 		"Internship": {
@@ -277,7 +310,8 @@
 			"Mentor": {
 				"Access": [1, 1, 1, 1, 1],
 				"Type": "String",
-				"Dim": 25
+				"Dim": 25,
+				"style": { "width": "90%" }
 			},
 			"Period": {
 				"Access": [1, 1, 1, 1, 1],

@@ -8,6 +8,7 @@ import FieldSet from "./FieldSet";
 import Message from "./Message";
 import Dat from "../dat/dat";
 import { Field_Types, Form_Roles } from "../scr/Logic";
+import { cloneDeep } from "lodash/lang";
 
 class Control extends FormComponent {
 	constructor(props) {
@@ -38,12 +39,14 @@ class Control extends FormComponent {
 		);
 
 		if (Object.keys(Dat.Data_Model).includes(Field_Object.Type)) {
-			Context.Entity = In_Collection ? Field_Object.Type : Field_Id;
-			Context.Entity_Id = Data;
+			let Control_Context = cloneDeep (Context);
+
+			Control_Context.Entity = Field_Object.Type;
+			Control_Context.Entity_Id = Data;
 
 			return (
 				<FieldSet
-					Context={Context}
+					Context={Control_Context}
 					Data={Data}
 					Data_Pass={this.Data_Receive}
 					Parent_Handler={this.Handler}

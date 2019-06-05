@@ -1,11 +1,9 @@
 import React from "react";
-import FieldSet from "./FieldSet";
 import Control from "./Control";
 import FormComponent from "../cmp/FormComponent";
 import ControlCollection from "./ControlCollection";
 import Message from "./Message";
 import { Field_Types, Form_Roles, T } from "../scr/Logic";
-import Dat from "../dat/dat";
 
 class Field extends FormComponent {
 	render() {
@@ -38,21 +36,6 @@ class Field extends FormComponent {
 				/>
 			);
 
-			// If it concerns a foreign key to another type of entity
-		} else if (Object.keys(Dat.Data_Model).includes(Field_Object.Type)) {
-			Context.Entity = Field_Id;
-			Context.Entity_Id = Data;
-
-			Sub_Component = (
-				<FieldSet
-					Context={Context}
-					Data={Data}
-					Data_Pass={this.Data_Receive}
-					Parent_Handler={this.Handler}
-					Label={Field_Object.Label}
-					Roles={[Form_Roles.Data_Binder, Form_Roles.Data_Propagator]}
-				/>
-			);
 		} else {
 			let Roles = [
 				Form_Roles.Data_Submitter,

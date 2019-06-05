@@ -12,7 +12,8 @@ class Message extends WrapperComponent {
 			Ready: "info",
 			Changed: "warning",
 			Sent: "warning",
-			Read_Only: "read-only"
+			Local_Read_Only: "read-only",
+			Global_Read_Only: "read-only"
 		};
 	}
 

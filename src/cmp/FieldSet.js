@@ -30,10 +30,9 @@ class FieldSet extends FormComponent {
 		if (Entity_Id) {
 			this.Log("CTOR: Exec Get_Doc" + Entity + " (" + Entity_Id + ")");
 			DB.Get_Doc(Entity, Entity_Id, this.On_Get_Doc, this.On_Get_Doc_Error);
-
 		} else {
 			this.Log("CTOR: Exec New_Doc");
-			DB.New_Doc(Entity,  this.On_New_Doc, this.On_New_Doc_Error);
+			DB.New_Doc(Entity, this.On_New_Doc, this.On_New_Doc_Error);
 		}
 	}
 
@@ -60,10 +59,10 @@ class FieldSet extends FormComponent {
 
 		if (State === Form_States.Sent) return null;
 
-		this.Log ("render")
-
 		Context.Entity = Entity;
 		Context.Entity_Id = this.state.Entity_Id || Context.Entity_Id;
+
+		this.Log("render: " + Entity + "(" + Context.Entity_Id + ")");
 
 		// Using the single-point of truth data model as a template, create
 		//  recursively the necessary components. Each entity definition is being
